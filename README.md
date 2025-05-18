@@ -1,81 +1,125 @@
 # AMM Agno Memory Modules
 
-This repository contains the core AMM (Adaptive Memory Module) engine and models for the Agno platform.
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## Structure
+Advanced Memory Management (AMM) for the Agno platform, providing efficient storage, retrieval, and management of AI interaction data and knowledge bases.
 
-- `amm_project/`: Core package
-  - `engine/`: AMM engine implementation
-  - `models/`: Data models and schemas
-  - `config/`: Configuration management
-- `tests/`: Unit and integration tests
+## ✨ Features
 
-## Prerequisites
+- **Adaptive Memory Engine**: Efficient storage and retrieval of interaction data
+- **Vector Database Integration**: Seamless integration with LanceDB for semantic search
+- **Multi-Model Support**: Compatible with various LLM providers (OpenAI, Anthropic, Google AI)
+- **Production-Ready**: Built with FastAPI for high-performance API serving
+- **Scalable**: Designed for both small-scale applications and enterprise deployments
 
-- Miniconda or Anaconda distribution
-- Python 3.8 or higher
+## 🚀 Quick Start
 
-## Setup with Conda
+### Prerequisites
 
-1. **Create and activate the conda environment** (using the provided `environment.yml`):
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/products/distribution)
+- Python 3.12
+- CUDA 12.1+ (for GPU acceleration)
+- NVIDIA GPU with compute capability 7.0+ (recommended)
 
-```bash
-# Create and activate the environment
-conda env create -f environment.yml
-conda activate amm-agno
+### Installation
 
-# Install the package in development mode
-pip install -e .
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/AMM_Agno_Memory_Modules.git
+   cd AMM_Agno_Memory_Modules
+   ```
+
+2. **Set up the conda environment**
+   ```bash
+   # Create and activate the environment
+   conda env create -f environment.yml
+   conda activate amm-agno
+   
+   # Install in development mode
+   pip install -e .
+   ```
+
+3. **Verify the installation**
+   ```bash
+   python -c "import torch; print(f'PyTorch version: {torch.__version__}')"
+   python -c "import lancedb; print(f'LanceDB version: {lancedb.__version__}')"
+   ```
+
+## 🏗 Project Structure
+
+```
+AMM_Agno_Memory_Modules/
+├── amm_project/           # Core package
+│   ├── config/           # Configuration management
+│   ├── engine/           # Core AMM engine implementation
+│   └── models/           # Data models and schemas
+├── tests/                # Test suite
+│   └── unit/             # Unit tests
+├── environment.yml       # Conda environment specification
+├── requirements.txt      # Python dependencies
+└── setup.py             # Package configuration
 ```
 
-Alternatively, if you prefer to create the environment manually:
+## 🧪 Running Tests
 
 ```bash
-# Create a new conda environment
-conda create -n amm-agno python=3.10
-conda activate amm-agno
-
-# Install dependencies
-conda install --file requirements.txt
-
-# Install development dependencies
-conda install pytest pytest-cov pre-commit black isort mypy flake8
-
-# Install the package in development mode
-pip install -e .
-```
-
-## Running Tests
-
-```bash
-# Make sure you're in the activated conda environment
-conda activate amm-agno
-
 # Run all tests
 pytest tests/
 
 # Run tests with coverage report
 pytest --cov=amm_project tests/
+
+# Generate HTML coverage report
+pytest --cov=amm_project --cov-report=html tests/
 ```
 
-## Development
+## 🛠 Development
 
-### Setting up pre-commit hooks (optional but recommended)
+### Code Style
+
+We use `black` for code formatting and `isort` for import sorting. Pre-commit hooks are available to automate this:
 
 ```bash
-conda install -c conda-forge pre-commit
+# Install pre-commit hooks
 pre-commit install
+
+# Run against all files
+pre-commit run --all-files
 ```
 
-### Updating Dependencies
+### Dependency Management
 
-1. Add new dependencies to `requirements.txt`
-2. Update the conda environment:
+1. **Adding a new dependency**:
+   - Add to `environment.yml` for conda packages
+   - Add to `requirements.txt` for pip packages
+   - Update the environment:
+     ```bash
+     conda env update --file environment.yml --prune
+     ```
 
-```bash
-conda env update --file environment.yml --prune
-```
+2. **Updating dependencies**:
+   ```bash
+   conda env export --from-history > environment.yml
+   pip freeze > requirements.txt
+   ```
 
-## License
+## 📚 Documentation
 
-This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
+For detailed documentation, please refer to:
+- [API Reference](docs/api.md)
+- [Configuration Guide](docs/configuration.md)
+- [Deployment Guide](docs/deployment.md)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📬 Contact
+
+For questions or support, please open an issue on GitHub or contact the maintainers.
