@@ -71,7 +71,8 @@ def test_dynamic_context_function_missing_name():
 # Tests for GeminiConfig
 def test_gemini_config_defaults():
     config = GeminiConfig()
-    assert config.model_name == GeminiModelType.GEMINI_FLASH_LATEST
+    assert config.model_name == GeminiModelType.GEMINI_2_5_FLASH
+    assert config.embedding_model_name == GeminiModelType.TEXT_EMBEDDING_004
     assert config.api_key_env_var == "GEMINI_API_KEY"
     assert config.temperature == 0.7
     assert config.top_p is None
