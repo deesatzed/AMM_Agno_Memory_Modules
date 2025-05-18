@@ -1,0 +1,21 @@
+name: amm-agno
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - -r file:requirements.txt
+  - pytest
+  - pytest-cov
+  - pre-commit
+  - black
+  - isort
+  - mypy
+  - flake8
+  - google-generativeai>=1.14.0
+  - lancedb>=0.5.0
+  - pydantic>=2.11.0
+  - SQLAlchemy>=2.0.0
+  - python-dotenv>=1.0.0

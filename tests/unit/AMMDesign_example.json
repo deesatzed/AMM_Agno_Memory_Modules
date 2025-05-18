@@ -1,0 +1,16 @@
+{
+  "design_id": "test_cli_amm_001",
+  "name": "CLI Test AMM",
+  "knowledge_sources": [
+    {
+      "id": "ks1",
+      "name": "Sample Knowledge Source",
+      "type": "file",
+      "path": "tests/unit/sample_knowledge.txt",
+      "encoding": "utf-8"
+    }
+  ],
+  "agent_prompts": {},
+  "gemini_config": {},
+  "adaptive_memory_config": {}
+}
